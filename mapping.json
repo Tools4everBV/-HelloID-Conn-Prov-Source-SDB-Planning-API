@@ -1,0 +1,86 @@
+{
+    "personMappings": [
+        {
+            "name": "ExternalId",
+            "mode": "field",
+            "value": "ExternalId",
+            "validation": {
+                "required": false
+            }
+        },
+        {
+            "name": "Name.FamilyName",
+            "mode": "field",
+            "value": "LastName",
+            "validation": {
+                "required": false
+            }
+        },
+        {
+            "name": "Name.GivenName",
+            "mode": "field",
+            "value": "GivenName",
+            "validation": {
+                "required": false
+            }
+        }
+    ],
+    "contractMappings": [
+        {
+            "name": "Department.DisplayName",
+            "mode": "field",
+            "value": "organizationalUnit.name",
+            "validation": {
+                "required": false
+            }
+        },
+        {
+            "name": "Department.ExternalId",
+            "mode": "field",
+            "value": "organizationalUnit.code",
+            "validation": {
+                "required": false
+            }
+        },
+        {
+            "name": "EndDate",
+            "mode": "field",
+            "value": "end",
+            "validation": {
+                "required": false
+            }
+        },
+        {
+            "name": "ExternalId",
+            "mode": "field",
+            "value": "id",
+            "validation": {
+                "required": false
+            }
+        },
+        {
+            "name": "StartDate",
+            "mode": "field",
+            "value": "start",
+            "validation": {
+                "required": false
+            }
+        },
+        {
+            "name": "Title.Code",
+            "mode": "field",
+            "value": "function.code",
+            "validation": {
+                "required": false
+            }
+        },
+        {
+            "name": "Title.Name",
+            "mode": "field",
+            "value": "function.name",
+            "validation": {
+                "required": false
+            }
+        }
+    ]
+}
