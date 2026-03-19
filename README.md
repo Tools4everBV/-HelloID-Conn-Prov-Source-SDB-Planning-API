@@ -32,7 +32,7 @@ _HelloID-Conn-Prov-Source-SDB-Planning-API_ is a _Source_ connector. _SDB-Planni
 
 ### Connection settings
 
-The following settings are required to connect to the API.
+The following settings are required to connect to the SDB API.
 
 | Setting        | Description                                                              | Mandatory |
 | -------------- | ------------------------------------------------------------------------ | --------- |
