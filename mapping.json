@@ -10,18 +10,42 @@
         },
         {
             "name": "Name.FamilyName",
-            "mode": "field",
-            "value": "LastName",
+            "mode": "complex",
+            "value": "function getfamilynamePrefix(){\r\n  const commonPrefixes = ['de', 'den', 'van', 'van de', 'van den', 'van der', 'te', 'ter', 'ten', \"van 't\"];\r\n  let value = null;\r\n  \r\n  if(Boolean(source.LastName)){\r\n    value = source.LastName.split('-')[0].trim();\r\n    \r\n    // Sorteer prefixes van lang naar kort (zodat \"van de\" voor \"van\" wordt gecheckt)\r\n    const sortedPrefixes = commonPrefixes.sort((a, b) => b.length - a.length);\r\n    \r\n    for(let prefix of sortedPrefixes){\r\n      const prefixWithSpace = prefix + ' ';\r\n      if(value.toLowerCase().startsWith(prefixWithSpace.toLowerCase())){\r\n        value = value.substring(prefixWithSpace.length).trim();\r\n        break;\r\n      }\r\n    }\r\n  }\r\n  return value;\r\n}\r\ngetfamilynamePrefix();",
             "validation": {
                 "required": false
             }
         },
         {
-            "name": "Name.GivenName",
+            "name": "Name.FamilyNamePartner",
+            "mode": "fixed",
+            "value": "",
+            "validation": {
+                "required": false
+            }
+        },
+        {
+            "name": "Name.FamilyNamePartnerPrefix",
+            "mode": "fixed",
+            "value": "",
+            "validation": {
+                "required": false
+            }
+        },
+        {
+            "name": "Name.FamilyNamePrefix",
+            "mode": "complex",
+            "value": "function getfamilynamePrefix(){\r\n  const commonPrefixes = ['de', 'den', 'van', 'van de', 'van den', 'van der', 'te', 'ter', 'ten', \"van 't\"];\r\n  let value = null;\r\n  \r\n  if(Boolean(source.LastName)){\r\n    const name = source.LastName.split('-')[0].trim();\r\n    \r\n    // Sorteer prefixes van lang naar kort (zodat \"van de\" voor \"van\" wordt gecheckt)\r\n    const sortedPrefixes = commonPrefixes.sort((a, b) => b.length - a.length);\r\n    \r\n    for(let prefix of sortedPrefixes){\r\n      const prefixWithSpace = prefix + ' ';\r\n      if(name.toLowerCase().startsWith(prefixWithSpace.toLowerCase())){\r\n        value = prefix;\r\n        break;\r\n      }\r\n    }\r\n  }\r\n  return value;\r\n}\r\ngetfamilynamePrefix();",
+            "validation": {
+                "required": false
+            }
+        },
+        {
+            "name": "Name.NickName",
             "mode": "field",
             "value": "GivenName",
             "validation": {
-                "required": false
+                "required": true
             }
         }
     ],
